@@ -10,10 +10,10 @@ Extract data from Postgres > Load into GCS
 
 
 default_args = {
-    'owner': 'grisell.reyes',
+    'owner': 'monica guajardo',
     'depends_on_past': False,    
-    'start_date': datetime(2021, 10, 1),
-    'email': ['grisell.reyes@wizeline.com'],
+    'start_date': datetime(2021, 1, 1),
+    'email': ['monica.guajardo@wizeline.com'],
     'email_on_failure': True,
     'email_on_retry': False,
     'retries': 2,
@@ -32,7 +32,7 @@ GOOGLE_CONN_ID = "google_cloud_default"
 POSTGRES_CONN_ID = "postgres_default"
 FILENAME = "cities.parquet"
 SQL_QUERY = "select * from cities"
-bucket_name = "data-bootcamp-terraforms-us"
+bucket_name = "appr05-moni-up"
 
 upload_data = PostgresToGCSOperator(
         task_id="get_data", sql=SQL_QUERY, bucket=bucket_name, filename=FILENAME, gzip=False, dag=dag)
